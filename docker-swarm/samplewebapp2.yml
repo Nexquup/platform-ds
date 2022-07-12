@@ -1,0 +1,33 @@
+version: "3.3"
+
+services:
+  samplewebapp:
+    image: azitmentor/samplewebapp
+      
+
+    labels:
+       - "traefik.enable=true"
+       - "traefik.http.routers.sample.rule=Host(`site1.azitmentor.hu`)"
+       - "traefik.http.routers.sample.entrypoints=web"
+       - "traefik.http.routers.sample.service=sample"
+       - "traefik.http.services.sample.loadbalancer.server.port=80"
+
+    networks:
+      - trnet
+  
+  whoami:
+    image: containous/whoami
+
+    labels:
+       - "traefik.enable=true"
+       - "traefik.http.routers.who.rule=Host(`site2.azitmentor.hu`)"
+       - "traefik.http.routers.who.entrypoints=web"
+       - "traefik.http.routers.who.service=who"
+       - "traefik.http.services.who.loadbalancer.server.port=80"
+      
+    networks:
+      - trnet
+  
+networks:
+   trnet:
+     external: true
