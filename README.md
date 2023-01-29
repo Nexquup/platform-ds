@@ -7,8 +7,10 @@
 ## First steps till the portainer platform:
 In linux terminal (refresh your linux repo, update your installation):
 * sudo apt update
-* sudo apt install
+* sudo apt upgrade
+* sudo apt install docker.io
 * sudo reboot
+* sudo docker swarm init
 
 ## Install portainer 
 (based on: https://docs.portainer.io/v/ce-2.9/start/install/server/swarm/linux)
@@ -19,6 +21,7 @@ In linux terminal (refresh your linux repo, update your installation):
 > sudo docker stack deploy -c portainer-agent-stack.yml portainer
 
 After this stack deploy,  the portainer UI is ready on your public ip(url) at port 9000:
+(open port 9000 on your cloud firewall if any)
 
 http://mypublicipurl:9000
 
