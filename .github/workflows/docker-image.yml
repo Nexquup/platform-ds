@@ -18,7 +18,7 @@ jobs:
     - name: Docker Login
       uses: docker/login-action@v2.0.0
       with:
-        username: azitmentor
+        username: nexquup
         password: ${{ secrets.dockerpw }}
 
     -
@@ -35,4 +35,4 @@ jobs:
           context: ./samplewebapp
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: azitmentor/samplewebapp:latest
+          tags: nexquup/samplewebapp:latest
