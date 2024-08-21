@@ -18,7 +18,7 @@ jobs:
     - name: Docker Login
       uses: docker/login-action@v2.0.0
       with:
-        username: azitmentor
+        username: nexquup
         password: ${{ secrets.DOCKERPW }}
     
     - name: Build the Docker Image
