@@ -15,5 +15,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Docker Login
+      uses: docker/login-action@v2.0.0
+      with:
+        username: azitmentor
+        password: ${{ secrets.DOCKERPW }}
+    
     - name: Build the Docker Image
-      run: docker build ./samplewebapp/ --file samplewebapp/Dockerfile --tag my-image-name:$(date +%s)
+      run: | 
+          docker build ./samplewebapp/ --file samplewebapp/Dockerfile --tag nexquup/samplewebapp:latest
+          docker push nexquup/samplewebapp:latest
